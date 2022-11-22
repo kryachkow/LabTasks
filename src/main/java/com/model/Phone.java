@@ -1,4 +1,4 @@
-package com.hierarcy;
+package com.model;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -10,6 +10,9 @@ public class Phone extends Electric {
     private String processor;
     private int memoryStorage;
 
+    public Phone() {
+    }
+
     public Phone(int weight, String colour, int price, LocalDate dateOfManufacture, Period guaranteePeriod, int batteryVolume, int cameraResolution, String processor, int memoryStorage) {
         super(weight, colour, price, dateOfManufacture, guaranteePeriod);
         this.batteryVolume = batteryVolume;
@@ -17,10 +20,6 @@ public class Phone extends Electric {
         this.processor = processor;
         this.memoryStorage = memoryStorage;
     }
-
-    public Phone() {
-    }
-
 
     public int getBatteryVolume() {
         return batteryVolume;
@@ -66,5 +65,15 @@ public class Phone extends Electric {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getBatteryVolume(), getCameraResolution(), getProcessor(), getMemoryStorage());
+    }
+
+    @Override
+    public String toString() {
+        return "Phone{" +
+                "batteryVolume=" + batteryVolume +
+                ", cameraResolution=" + cameraResolution +
+                ", processor='" + processor + '\'' +
+                ", memoryStorage=" + memoryStorage +
+                '}';
     }
 }

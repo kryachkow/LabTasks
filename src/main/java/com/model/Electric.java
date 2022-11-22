@@ -1,4 +1,4 @@
-package com.hierarcy;
+package com.model;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -9,16 +9,15 @@ public class Electric extends Item {
     private LocalDate dateOfManufacture;
     private Period guaranteePeriod;
 
+    public Electric() {
+    }
+
     public Electric(int weight, String colour, int price, LocalDate dateOfManufacture, Period guaranteePeriod) {
         super(weight, colour);
         this.price = price;
         this.dateOfManufacture = dateOfManufacture;
         this.guaranteePeriod = guaranteePeriod;
     }
-
-    public Electric() {
-    }
-
 
     public int getPrice() {
         return price;
@@ -56,5 +55,14 @@ public class Electric extends Item {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getPrice(), getDateOfManufacture(), getGuaranteePeriod());
+    }
+
+    @Override
+    public String toString() {
+        return "Electric{" +
+                "price=" + price +
+                ", dateOfManufacture=" + dateOfManufacture +
+                ", guaranteePeriod=" + guaranteePeriod +
+                '}';
     }
 }

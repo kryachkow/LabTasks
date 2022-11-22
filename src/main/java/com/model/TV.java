@@ -1,4 +1,4 @@
-package com.hierarcy;
+package com.model;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -8,13 +8,13 @@ public class TV extends Electric{
     private int hertz;
     private int diagonal;
 
+    public TV() {
+    }
+
     public TV(int weight, String colour, int price, LocalDate dateOfManufacture, Period guaranteePeriod, int hertz, int diagonal) {
         super(weight, colour, price, dateOfManufacture, guaranteePeriod);
         this.hertz = hertz;
         this.diagonal = diagonal;
-    }
-
-    public TV() {
     }
 
     public int getHertz() {
@@ -45,5 +45,13 @@ public class TV extends Electric{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getHertz(), getDiagonal());
+    }
+
+    @Override
+    public String toString() {
+        return "TV{" +
+                "hertz=" + hertz +
+                ", diagonal=" + diagonal +
+                '}';
     }
 }

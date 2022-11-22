@@ -1,4 +1,4 @@
-package com.hierarcy;
+package com.model;
 
 import java.util.Objects;
 
@@ -6,14 +6,13 @@ public class Item {
     private int weight;
     private String colour;
 
+    public Item() {
+    }
+
     public Item(int weight, String colour) {
         this.weight = weight;
         this.colour = colour;
     }
-
-    public Item() {
-    }
-
 
     public int getWeight() {
         return weight;
@@ -42,5 +41,13 @@ public class Item {
     @Override
     public int hashCode() {
         return Objects.hash(getWeight(), getColour());
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "weight=" + weight +
+                ", colour='" + colour + '\'' +
+                '}';
     }
 }
