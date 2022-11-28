@@ -35,7 +35,7 @@ class CustomListTest {
                 itr.remove();
             }
         }
-        assertArrayEquals(list.toArray(), new Integer[]{0, 2, 4, 6, 8});
+        assertArrayEquals(new Integer[]{0, 2, 4, 6, 8}, list.toArray());
         itr = list.iterator();
         itr.next();
         StringBuilder result = new StringBuilder();
@@ -62,7 +62,7 @@ class CustomListTest {
             itr.next();
             itr.remove();
         }
-        assertArrayEquals(list.toArray(), new Integer[]{1, 3, 5, 7, 9});
+        assertArrayEquals(new Integer[]{1, 3, 5, 7, 9}, list.toArray());
         itr = list.customizableIterator(e -> e % 3 == 0);
         StringBuilder result = new StringBuilder();
         itr.next();
@@ -113,7 +113,7 @@ class CustomListTest {
         CustomList<Integer> oddList = getOddList();
         assertTrue(list.addAll(7, oddList));
         assertEquals(15, list.size());
-        assertArrayEquals(list.toArray(), new Integer[]{0, 1, 2, 3, 4, 5, 6, 1, 3, 5, 7, 9, 7, 8, 9});
+        assertArrayEquals(new Integer[]{0, 1, 2, 3, 4, 5, 6, 1, 3, 5, 7, 9, 7, 8, 9}, list.toArray());
         assertFalse(list.addAll(5, new CustomList<>()));
     }
 
@@ -122,7 +122,7 @@ class CustomListTest {
         CustomList<Integer> oddList = getOddList();
         assertTrue(list.removeAll(oddList));
         assertEquals(5, list.size());
-        assertArrayEquals(list.toArray(), new Integer[]{0, 2, 4, 6, 8});
+        assertArrayEquals(new Integer[]{0, 2, 4, 6, 8}, list.toArray());
         assertFalse(list.removeAll(new CustomList<>()));
     }
 
@@ -131,7 +131,7 @@ class CustomListTest {
         CustomList<Integer> oddList = getOddList();
         assertTrue(list.retainAll(oddList));
         assertEquals(5, list.size());
-        assertArrayEquals(list.toArray(), new Integer[]{1, 3, 5, 7, 9});
+        assertArrayEquals(new Integer[]{1, 3, 5, 7, 9}, list.toArray());
         assertFalse(list.retainAll(oddList));
     }
 
