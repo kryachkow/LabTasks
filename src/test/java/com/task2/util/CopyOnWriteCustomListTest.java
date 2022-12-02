@@ -1,9 +1,10 @@
-package com.util;
+package com.task2.util;
 
+import com.task1.util.CustomListTest;
+import com.task2.util.CopyOnWriteCustomList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -13,7 +14,7 @@ class CopyOnWriteCustomListTest extends CustomListTest {
 
     @Override
     @BeforeEach
-    void setUp() {
+    protected void setUp() {
         list = new CopyOnWriteCustomList<>();
         for (int i = 0; i < 10 ; i ++){
             list.add(i);
@@ -22,7 +23,7 @@ class CopyOnWriteCustomListTest extends CustomListTest {
 
     @Override
     @Test
-    void iterator() {
+    protected void iterator() {
         Iterator<Integer> itr = list.iterator();
         int i = 0;
         while(itr.hasNext()){
@@ -46,7 +47,7 @@ class CopyOnWriteCustomListTest extends CustomListTest {
 
     @Override
     @Test
-    void customizableIterator() {
+    protected void customizableIterator() {
         Iterator<Integer> itr = list.customizableIterator(e -> e % 2 == 0);
         int i = 0;
         while(itr.hasNext()){

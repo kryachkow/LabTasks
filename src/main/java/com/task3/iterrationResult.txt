@@ -1,0 +1,64 @@
+ defaultHashMap iteration 
+
+LK02 -> fourth 4
+NILP56 -> fifth 5
+ILET391 -> sixth 6
+JKME -> third 3
+HT -> seventh 7
+UIEK -> second 2
+ABSC -> first 1
+~~~~~~~~~~~~~
+
+ hashLengthMap iteration 
+
+HT -> seventh 7
+ABSC -> first 1
+UIEK -> second 2
+JKME -> third 3
+LK02 -> fourth 4
+NILP56 -> fifth 5
+ILET391 -> sixth 6
+~~~~~~~~~~~~~
+
+ hashSumMap iteration
+
+JKME -> third 3
+UIEK -> second 2
+NILP56 -> fifth 5
+ABSC -> first 1
+LK02 -> fourth 4
+HT -> seventh 7
+ILET391 -> sixth 6
+~~~~~~~~~~~~~
+
+ defaultLinkedHashMap iteration
+
+ABSC -> first 1
+UIEK -> second 2
+JKME -> third 3
+LK02 -> fourth 4
+NILP56 -> fifth 5
+ILET391 -> sixth 6
+HT -> seventh 7
+~~~~~~~~~~~~~
+
+ hashLengthLinkedMap iteration
+
+ABSC -> first 1
+UIEK -> second 2
+JKME -> third 3
+LK02 -> fourth 4
+NILP56 -> fifth 5
+ILET391 -> sixth 6
+HT -> seventh 7
+~~~~~~~~~~~~~
+
+ hashSumLinkedMap iteration
+
+ABSC -> first 1
+UIEK -> second 2
+JKME -> third 3
+LK02 -> fourth 4
+NILP56 -> fifth 5
+ILET391 -> sixth 6
+HT -> seventh 7

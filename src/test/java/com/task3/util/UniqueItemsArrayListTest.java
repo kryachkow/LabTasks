@@ -1,5 +1,6 @@
-package com.util;
+package com.task3.util;
 
+import com.task3.util.UniqueItemsArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

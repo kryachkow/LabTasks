@@ -1,4 +1,6 @@
-package com.util;
+package com.task2.util;
+
+import com.task1.util.CustomList;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -6,7 +8,7 @@ import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 //Task 2 part 1
-public class CopyOnWriteCustomList<E> extends CustomList<E>{
+public class CopyOnWriteCustomList<E> extends CustomList<E> {
 
     public CopyOnWriteCustomList(){
 

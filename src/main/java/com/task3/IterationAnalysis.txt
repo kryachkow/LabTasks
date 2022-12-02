@@ -1,0 +1,13 @@
+Let`s start with LinkedHashMaps, iterations were in sequence of elements adding because every entry in this map contains link to
+element which was added before and element which was added after it.
+
+HashMap iterates through buckets(linked lists) so default HashMap`s with String keys iterations were "random" because of
+difference in hash codes. <- most effective key variant
+
+HashMap with hash code of first 4 chars iterations were "random" too, however efficiency of distribution by buckets
+far worse than default String keys. <- second by efficiency
+
+HashMap with length of String hash code distributes values by buckets by their length(same length same bucket)
+in such situation in situation with same articles length hashMap will become linked list which critically ineffective <- most ineffective
+
+(LinkedHashMap and HashMap share conclusions of hashcode generating variant efficiency)

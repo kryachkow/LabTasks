@@ -1,12 +1,16 @@
-package com.model;
+package com.task3.model;
 
 import java.util.Objects;
 //Task 3 part  2
-public class ArticleHashLength {
+public class ArticleHashSum {
     final String name;
 
-    public ArticleHashLength(String string){
+    public ArticleHashSum(final String string){
         this.name = string;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -18,12 +22,20 @@ public class ArticleHashLength {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ArticleHashLength article = (ArticleHashLength) o;
+        ArticleHashSum article = (ArticleHashSum) o;
         return Objects.equals(name, article.name);
     }
 
     @Override
     public int hashCode() {
-        return name.length();
+        int i = 0;
+        int result = 0;
+        while (i < name.length() - 1 && i < 4) {
+            result += name.charAt(i);
+            i++;
+        }
+        return result;
     }
+
+
 }

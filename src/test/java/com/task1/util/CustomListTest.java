@@ -1,5 +1,6 @@
-package com.util;
+package com.task1.util;
 
+import com.task1.util.CustomList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,11 +8,11 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CustomListTest {
-    CustomList<Integer> list;
+public class CustomListTest {
+    protected CustomList<Integer> list;
 
     @BeforeEach
-    void setUp() {
+    protected void setUp() {
          list = new CustomList<>();
         for (int i = 0; i < 10 ; i ++){
             list.add(i);
@@ -19,7 +20,7 @@ class CustomListTest {
     }
 
     @Test
-    void iterator() {
+    protected void iterator() {
         Iterator<Integer> itr = list.iterator();
         int i = 0;
         while(itr.hasNext()){
@@ -48,7 +49,7 @@ class CustomListTest {
     }
 
     @Test
-    void customizableIterator() {
+    protected void customizableIterator() {
         Iterator<Integer> itr = list.customizableIterator(e -> e % 2 == 0);
         int i = 0;
         while(itr.hasNext()){
@@ -76,7 +77,7 @@ class CustomListTest {
     }
 
     @Test
-    void add() {
+    protected void add() {
         assertTrue(list.add(12));
         assertTrue(list.add(55));
         assertEquals(12, list.size());
@@ -89,7 +90,7 @@ class CustomListTest {
     }
 
     @Test
-    void remove() {
+    protected void remove() {
         assertFalse(list.remove((Integer) 12));
         assertTrue(list.remove((Integer) 9));
         assertTrue(list.remove((Integer) 1));
@@ -99,7 +100,7 @@ class CustomListTest {
     }
 
     @Test
-    void addAll() {
+    protected void addAll() {
         CustomList<Integer> oddList = getOddList();
         assertTrue(list.addAll(oddList));
         assertEquals(15, list.size());
@@ -109,7 +110,7 @@ class CustomListTest {
     }
 
     @Test
-    void testAddAll() {
+    protected void testAddAll() {
         CustomList<Integer> oddList = getOddList();
         assertTrue(list.addAll(7, oddList));
         assertEquals(15, list.size());
@@ -118,7 +119,7 @@ class CustomListTest {
     }
 
     @Test
-    void removeAll() {
+    protected void removeAll() {
         CustomList<Integer> oddList = getOddList();
         assertTrue(list.removeAll(oddList));
         assertEquals(5, list.size());
@@ -127,7 +128,7 @@ class CustomListTest {
     }
 
     @Test
-    void retainAll() {
+    protected void retainAll() {
         CustomList<Integer> oddList = getOddList();
         assertTrue(list.retainAll(oddList));
         assertEquals(5, list.size());
@@ -136,7 +137,7 @@ class CustomListTest {
     }
 
     @Test
-    void get() {
+    protected void get() {
         assertEquals(0, list.get(0));
         assertEquals(6, list.get(6));
         list.remove(6);
@@ -146,7 +147,7 @@ class CustomListTest {
     }
 
     @Test
-    void testAdd() {
+    protected void testAdd() {
         list.add(0, 0);
         assertEquals(11, list.size());
         assertEquals(0, list.indexOf(0));
@@ -156,14 +157,14 @@ class CustomListTest {
     }
 
     @Test
-    void testRemove() {
+    protected void testRemove() {
         assertEquals(0, list.remove(0));
         assertEquals(3, list.remove(2));
         assertEquals(8, list.size());
         assertThrows(IndexOutOfBoundsException.class, () -> list.remove(60));
     }
 
-    private CustomList<Integer> getOddList(){
+    protected CustomList<Integer> getOddList(){
         CustomList<Integer> oddList = new CustomList<>();
         for (int i = 1; i < 10; i = i+2){
             oddList.add(i);

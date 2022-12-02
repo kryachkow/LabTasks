@@ -1,8 +1,7 @@
-package com.util;
+package com.task1.util;
 
 
 import java.util.*;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
