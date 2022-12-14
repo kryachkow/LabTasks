@@ -1,6 +1,7 @@
 package com.task4;
 
 import com.task4.controller.Controller;
+import com.task4.utils.ConstantFields;
 
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ public class ConsoleStore {
     public static void main(String[] args) {
         Controller controller = new Controller();
         System.out.println(WELCOME_MESSAGE);
-        System.out.println(controller.doCommand("/checkCommands"));
+        System.out.println(controller.doCommand(ConstantFields.CHECK_COMMANDS_COMMAND));
         Scanner consoleStore = new Scanner(System.in);
 
         while(true) {

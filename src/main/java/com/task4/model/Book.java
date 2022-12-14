@@ -3,6 +3,7 @@ package com.task4.model;
 import java.util.Objects;
 
 public class Book {
+    private Long id;
     private String author;
     private String bookTitle;
     private String publisher;
@@ -11,12 +12,21 @@ public class Book {
 
     public Book() {}
 
-    public Book(String author, String bookTitle, String publisher, int pageNumber, int price) {
+    public Book(Long id, String author, String bookTitle, String publisher, int pageNumber, int price) {
+        this.id = id;
         this.author = author;
         this.bookTitle = bookTitle;
         this.publisher = publisher;
         this.pageNumber = pageNumber;
         this.price = price;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getAuthor() {
@@ -59,28 +69,31 @@ public class Book {
         this.price = price;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Book)) return false;
         Book book = (Book) o;
-        return getPageNumber() == book.getPageNumber() && getPrice() == book.getPrice() && Objects.equals(getAuthor(), book.getAuthor()) && Objects.equals(getBookTitle(), book.getBookTitle()) && Objects.equals(getPublisher(), book.getPublisher());
+        return getPageNumber() == book.getPageNumber() && getPrice() == book.getPrice() && Objects.equals(getId(), book.getId()) && Objects.equals(getAuthor(), book.getAuthor()) && Objects.equals(getBookTitle(), book.getBookTitle()) && Objects.equals(getPublisher(), book.getPublisher());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getAuthor(), getBookTitle(), getPublisher(), getPageNumber(), getPrice());
+        return Objects.hash(getId(), getAuthor(), getBookTitle(), getPublisher(), getPageNumber(), getPrice());
     }
-
 
     @Override
     public String toString() {
         return "Book{" +
-                "author='" + author + '\'' +
+                "id=" + id +
+                ", author='" + author + '\'' +
                 ", bookTitle='" + bookTitle + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", pageNumber=" + pageNumber +
                 ", price=" + price +
                 '}';
     }
+
+
 }
