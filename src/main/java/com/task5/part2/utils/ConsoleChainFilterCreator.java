@@ -1,10 +1,10 @@
 package com.task5.part2.utils;
 
-import com.task4.utils.OrderDateUtils;
 import com.task5.part2.utils.FilterImpl.ChangeDateFilterImpl;
 import com.task5.part2.utils.FilterImpl.ExtensionFilterImpl;
 import com.task5.part2.utils.FilterImpl.NameFilterImpl;
 import com.task5.part2.utils.FilterImpl.SizeFilterImpl;
+import com.utils.DateTimeConsoleUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -71,11 +71,11 @@ public class ConsoleChainFilterCreator {
     public void addChangeTimeFilter(){
         System.out.println(SEARCH_BY_LAST_CHANGES_DATE_CHOOSE_MESSAGE);
         if (fileTreeTraveler.nextLine().trim().equals(COMMAND_TO_ADD_MESSAGE)){
-            LocalDate firstDate = OrderDateUtils.getDate(ENTER_FIRST_DATE_MESSAGE);
-            LocalDate secondDate = OrderDateUtils.getDate(ENTER_SECOND_DATE_MESSAGE);
+            LocalDate firstDate = DateTimeConsoleUtils.getDate(ENTER_FIRST_DATE_MESSAGE);
+            LocalDate secondDate = DateTimeConsoleUtils.getDate(ENTER_SECOND_DATE_MESSAGE);
             while (secondDate.isBefore(firstDate)){
                 System.out.println(WRONG_SECOND_DATE_MESSAGE);
-                secondDate = OrderDateUtils.getDate(ENTER_SECOND_DATE_MESSAGE);
+                secondDate = DateTimeConsoleUtils.getDate(ENTER_SECOND_DATE_MESSAGE);
             }
             filterList.add(new ChangeDateFilterImpl(firstDate, secondDate));
         }

@@ -19,18 +19,18 @@ public class ChainFilter {
     }
 
     public List<String> getFileNames(Path path) throws IOException {
-        Stream<File> files = Files.walk(path, FileVisitOption.FOLLOW_LINKS).map(Path::toFile);
-        return firstFilter != null
+        try(Stream<Path> paths = Files.walk(path, FileVisitOption.FOLLOW_LINKS)){
+            Stream<File> files = paths.map(Path::toFile);
+            return firstFilter != null
 
-                ? firstFilter
-                .filter(files)
-                .map(File::getAbsolutePath)
-                .collect(Collectors.toList())
+                    ? firstFilter
+                    .filter(files)
+                    .map(File::getAbsolutePath)
+                    .collect(Collectors.toList())
 
-                : files
-                .map(File::getAbsolutePath)
-                .collect(Collectors.toList());
+                    : files
+                    .map(File::getAbsolutePath)
+                    .collect(Collectors.toList());
+        }
     }
-
-
 }
