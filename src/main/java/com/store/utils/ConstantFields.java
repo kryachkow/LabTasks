@@ -2,14 +2,20 @@ package com.store.utils;
 
 public interface ConstantFields {
 
-  static final String CATALOG_COMMAND = "/catalog";
-  static final String ADD_TO_CART_COMMAND = "/addToCart";
-  static final String CHECK_CART_COMMAND = "/checkCart";
-  static final String MAKE_ORDER_COMMAND = "/makeOrder";
-  static final String CHECK_LAST_COMMAND = "/checkLast";
-  static final String CHECK_COMMANDS_COMMAND = "/checkCommands";
-  static final String GET_ORDER_BY_PERIOD_COMMAND = "/getOrdersByPeriod";
-  static final String FIND_ORDER_COMMAND = "/findOrder";
-  static final String EXIT_COMMAND = "/exit";
-  static final String ADD_TO_CATALOG_COMMAND = "/addToCatalog";
+  String CATALOG_COMMAND = "/catalog";
+  String ADD_TO_CART_COMMAND = "/addToCart";
+  String CHECK_CART_COMMAND = "/checkCart";
+  String MAKE_ORDER_COMMAND = "/makeOrder";
+  String CHECK_LAST_COMMAND = "/checkLast";
+  String CHECK_COMMANDS_COMMAND = "/checkCommands";
+  String GET_ORDER_BY_PERIOD_COMMAND = "/getOrdersByPeriod";
+  String FIND_ORDER_COMMAND = "/findOrder";
+  String EXIT_COMMAND = "/exit";
+  String ADD_TO_CATALOG_COMMAND = "/addToCatalog";
+  String CHANGE_LOCALE_COMMAND = "/changeLocale";
+  String AUTHOR_FIELD = "author";
+  String BOOK_TITLE_FIELD = "bookTitle";
+  String PUBLISHER_FIELD = "publisher";
+  String PAGE_NUMBER_FIELD = "pageNumber";
+  String PRICE_FIELD = "price";
 }

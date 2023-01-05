@@ -1,15 +1,21 @@
 package com.store.model;
 
+import com.store.service.Localized;
 import java.io.Serializable;
 import java.util.Objects;
 
 public class Book implements Serializable {
 
   private Long id;
+  @Localized("AUTHOR")
   private String author;
+  @Localized("BOOK_TITLE")
   private String bookTitle;
+  @Localized("PUBLISHER")
   private String publisher;
+  @Localized("PAGE_NUMBER")
   private int pageNumber;
+  @Localized("PRICE")
   private int price;
 
   public Book() {

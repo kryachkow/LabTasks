@@ -3,6 +3,7 @@ package com.store.controller;
 import com.store.command.AddToCartCommand;
 import com.store.command.AddToCatalogCommand;
 import com.store.command.CatalogCommand;
+import com.store.command.ChangeLocaleCommand;
 import com.store.command.CheckCartCommand;
 import com.store.command.CheckCommandsCommand;
 import com.store.command.CheckLastCommand;
@@ -11,6 +12,7 @@ import com.store.command.ExitCommand;
 import com.store.command.FindOrderByDateCommand;
 import com.store.command.GetOrdersByPeriodCommand;
 import com.store.command.MakeOrderCommand;
+import com.store.context.AppContext;
 import com.store.service.CartPartService;
 import com.store.service.CartService;
 import com.store.service.EditableCatalogService;
@@ -19,7 +21,6 @@ import com.store.service.impl.CartPartServiceImpl;
 import com.store.service.impl.CartServiceImpl;
 import com.store.service.impl.EditableCatalogServiceImpl;
 import com.store.service.impl.OrderServiceImpl;
-import com.store.strategy.StrategyContext;
 import com.store.utils.ConstantFields;
 import java.util.HashMap;
 
@@ -32,7 +33,6 @@ public class CommandContainer {
     CartPartService cartPartService = new CartPartServiceImpl();
     CartService cartService = new CartServiceImpl();
     OrderService orderService = new OrderServiceImpl();
-    StrategyContext strategyContext = new StrategyContext();
 
     commands.put(ConstantFields.CATALOG_COMMAND,
         new CatalogCommand(editableCatalogService));
@@ -53,7 +53,10 @@ public class CommandContainer {
     commands.put(ConstantFields.EXIT_COMMAND,
         new ExitCommand(editableCatalogService));
     commands.put(ConstantFields.ADD_TO_CATALOG_COMMAND,
-        new AddToCatalogCommand(editableCatalogService, strategyContext.getStrategy()));
+        new AddToCatalogCommand(editableCatalogService, AppContext.getAppContext()
+            .getGenerationStrategy()));
+    commands.put(ConstantFields.CHANGE_LOCALE_COMMAND,
+        new ChangeLocaleCommand());
   }
 
   public static Command getCommand(String command) {

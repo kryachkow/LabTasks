@@ -14,7 +14,8 @@ public class CheckCommandsCommand implements Command {
           + ConstantFields.GET_ORDER_BY_PERIOD_COMMAND + " - знайти замовлення за проміжком часу\n"
           + ConstantFields.FIND_ORDER_COMMAND + " - знайти замовлення по часу\n"
           + ConstantFields.EXIT_COMMAND + " - вийти з магазину\n"
-          + ConstantFields.ADD_TO_CATALOG_COMMAND + " - додати книгу";
+          + ConstantFields.ADD_TO_CATALOG_COMMAND + " - додати книгу\n"
+          + ConstantFields.CHANGE_LOCALE_COMMAND + " - змінити мову";
 
   @Override
   public String doCommand() {

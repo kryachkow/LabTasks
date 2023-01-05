@@ -12,10 +12,11 @@ import java.util.HashMap;
 public class CatalogUtils {
 
   private static String SAVED_CATALOG_PATH
-      = "src/main/resources/com/consoleStore/utils/catalogSave.txt";
+      = "src/main/resources/com/store/utils/catalogSave.txt";
   private static final String DIDNT_SAVED_CATALOG_EXCEPTION_MESSAGE = "Could`t save the catalog";
 
   private CatalogUtils() {
+    //comment
   }
 
 

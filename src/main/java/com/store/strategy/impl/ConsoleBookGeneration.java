@@ -2,7 +2,9 @@ package com.store.strategy.impl;
 
 import com.store.model.Book;
 import com.store.strategy.BookGenerationStrategy;
+import com.store.utils.ObjectsFromConsoleUtils;
 import java.util.Scanner;
+
 
 public class ConsoleBookGeneration implements BookGenerationStrategy {
 
@@ -13,34 +15,19 @@ public class ConsoleBookGeneration implements BookGenerationStrategy {
   private static final String ENTER_PRICE = "Введіть ціну!";
 
 
-  private final Scanner scanner = new Scanner(System.in);
 
   @Override
   public Book getBook(long id) {
-    String author = getStringFromConsole(ENTER_AUTHOR);
-    String title = getStringFromConsole(ENTER_TITLE);
-    String publisher = getStringFromConsole(ENTER_PUBLISHER);
-    int pageNumber = getIntFromConsole(ENTER_PAGE_NUMBER);
-    int price = getIntFromConsole(ENTER_PRICE);
+    String author = ObjectsFromConsoleUtils.getStringFromConsole(ENTER_AUTHOR);
+    String title = ObjectsFromConsoleUtils.getStringFromConsole(ENTER_TITLE);
+    String publisher = ObjectsFromConsoleUtils.getStringFromConsole(ENTER_PUBLISHER);
+    int pageNumber = ObjectsFromConsoleUtils.getIntFromConsole(ENTER_PAGE_NUMBER);
+    int price = ObjectsFromConsoleUtils.getIntFromConsole(ENTER_PRICE);
 
     return new Book(id, author, title, publisher, pageNumber, price);
   }
 
-  private String getStringFromConsole(String message) {
-    String toRet = null;
-    while (toRet == null || toRet.trim().isEmpty()) {
-      System.out.println(message);
-      toRet = scanner.nextLine();
-    }
-    return toRet;
-  }
 
-  private int getIntFromConsole(String message) {
-    int toRet = -1;
-    while (toRet < 0) {
-      System.out.println(message);
-      toRet = scanner.nextInt();
-    }
-    return toRet;
-  }
+
+
 }
