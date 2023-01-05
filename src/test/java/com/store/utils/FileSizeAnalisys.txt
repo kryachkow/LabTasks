@@ -1,0 +1,8 @@
+Appending 1 entry to a map increases file size by 47 bytes
+Appending same map increases file size by 5 bytes
+Appending additional map with another link increases size by 55 bytes
+Appending additional map with another links increases size by 166 bytes
+
+Java IO writes files with links to previous added objects if they exist, to reduce memory usage
+
+Compressing reduced size by 103 bytes in case with one map and by 217 bytes in case with to maps contain different objects
