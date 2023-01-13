@@ -1,11 +1,16 @@
 package com.task7.part2.proxy;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import com.task7.part2.model.NoteBook;
 import com.task7.part2.model.PagedItem;
 import java.lang.reflect.UndeclaredThrowableException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class ImmutableObjectHandlerTest {
 
@@ -20,18 +25,18 @@ class ImmutableObjectHandlerTest {
 
   @Test
   void getTesting(){
-    Assertions.assertEquals(noteBook.getName(), immutableNoteBook.getName());
-    Assertions.assertEquals(noteBook.getMaterial(), immutableNoteBook.getMaterial());
-    Assertions.assertEquals(noteBook.getPageNumber(), immutableNoteBook.getPageNumber());
-    Assertions.assertEquals(noteBook.getPrice(), immutableNoteBook.getPrice());
+    assertEquals(noteBook.getName(), immutableNoteBook.getName());
+    assertEquals(noteBook.getMaterial(), immutableNoteBook.getMaterial());
+    assertEquals(noteBook.getPageNumber(), immutableNoteBook.getPageNumber());
+    assertEquals(noteBook.getPrice(), immutableNoteBook.getPrice());
   }
 
   @Test
   void setTesting(){
-    Assertions.assertThrows(UndeclaredThrowableException.class,  () -> immutableNoteBook.setName("string"));
-    Assertions.assertThrows(UndeclaredThrowableException.class,  () -> immutableNoteBook.setMaterial("string"));
-    Assertions.assertThrows(UndeclaredThrowableException.class,  () -> immutableNoteBook.setPrice(54));
-    Assertions.assertThrows(UndeclaredThrowableException.class,  () -> immutableNoteBook.setPageNumber(12));
+    assertThrows(UndeclaredThrowableException.class,  () -> immutableNoteBook.setName("string"));
+    assertThrows(UndeclaredThrowableException.class,  () -> immutableNoteBook.setMaterial("string"));
+    assertThrows(UndeclaredThrowableException.class,  () -> immutableNoteBook.setPrice(54));
+    assertThrows(UndeclaredThrowableException.class,  () -> immutableNoteBook.setPageNumber(12));
   }
 
 }

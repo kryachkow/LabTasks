@@ -16,7 +16,7 @@ public class ImmutableObjectHandler implements InvocationHandler {
 
   @Override
   public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-    if (method.getName().contains("set")) {
+    if (method.getName().startsWith("set")) {
       throw new OperationNotSupportedException("This object couldn't be modified");
     }
     return method.invoke(pagedItem, args);

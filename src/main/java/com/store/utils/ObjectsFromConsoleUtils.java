@@ -22,15 +22,14 @@ public class ObjectsFromConsoleUtils {
 
   public static int getIntFromConsole(String message) {
     int toRet = -1;
-    while (toRet < 0) {
+    do {
       System.out.println(message);
       try {
         toRet = scanner.nextInt();
       } catch (InputMismatchException e) {
         System.out.println(ENTER_A_NUMBER);
       }
-
-    }
+    } while (toRet < 0);
     return toRet;
   }
 

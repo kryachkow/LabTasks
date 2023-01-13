@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class MapContainerHandler implements InvocationHandler {
 
-  private Map<String, Object> variablesMap;
+  private final Map<String, Object> variablesMap;
 
   private MapContainerHandler() {
     variablesMap = new HashMap<>();
@@ -26,8 +26,7 @@ public class MapContainerHandler implements InvocationHandler {
           ? variablesMap.getOrDefault(getVariableName(methodName), null)
           : variablesMap.getOrDefault(getVariableName(methodName), 0);
     }
-    variablesMap.put(getVariableName(methodName), args[0]);
-    return null;
+    return variablesMap.put(getVariableName(methodName), args[0]);
   }
 
 
