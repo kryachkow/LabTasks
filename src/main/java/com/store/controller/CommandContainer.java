@@ -57,6 +57,8 @@ public class CommandContainer {
             .getGenerationStrategy()));
     commands.put(ConstantFields.CHANGE_LOCALE_COMMAND,
         new ChangeLocaleCommand());
+
+    AppContext.getAppContext().startServers(editableCatalogService);
   }
 
   public static Command getCommand(String command) {

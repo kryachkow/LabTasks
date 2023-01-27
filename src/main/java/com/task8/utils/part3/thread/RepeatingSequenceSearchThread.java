@@ -7,7 +7,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 import org.apache.commons.lang.ArrayUtils;
 
 public class RepeatingSequenceSearchThread extends Thread {
@@ -101,25 +100,23 @@ public class RepeatingSequenceSearchThread extends Thread {
 
     private void toIterate() {
       int iterationSize = bytes.size();
-      HashMap<List<Byte>, List<Integer>> sequences = new HashMap<>();
+      HashMap<List<Byte>, List<Integer>> sequences = new HashMap<>(iterationSize, 1);
 
-      for (int i = 0; i < iterationSize; i++) {
+      for (int i = 0; i < iterationSize && iterationSize - i > longestSequence.getSequence().size();
+          i++) {
 
-        for (int j = i + longestSequence.getSequence().size() + 1;
-            j < iterationSize && j < i + iterationSize / 2; j++) {
+        for (int j = i + longestSequence.getSequence().size();
+            j < iterationSize && j <= i + iterationSize / 2; j++) {
 
-          if (!Objects.equals(bytes.get(j), bytes.get(j - 1))) {
-            List<Byte> sequence = bytes.subList(i, j);
-            if (sequences.containsKey(sequence)) {
-
-              if (longestSequence.getSequence().size() < sequence.size()) {
-                longestSequence.setSequence(sequence);
-                longestSequence.setEntrances(sequences.get(sequence));
-                longestSequence.getEntrances().add(i);
-              }
-            } else {
-              sequences.put(sequence, new ArrayList<>(List.of(i)));
+          List<Byte> sequence = bytes.subList(i, j + 1);
+          if (sequences.containsKey(sequence)) {
+            if (longestSequence.getSequence().size() < sequence.size()) {
+              longestSequence.setSequence(sequence);
+              longestSequence.setEntrances(sequences.get(sequence));
+              longestSequence.getEntrances().add(i);
             }
+          } else {
+            sequences.put(sequence, new ArrayList<>(List.of(i)));
           }
         }
       }

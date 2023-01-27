@@ -3,7 +3,6 @@ package com.task8.utils.part3;
 import com.task8.utils.part3.thread.RepeatingSequenceSearchThread;
 import java.io.IOException;
 import java.lang.Thread.State;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 

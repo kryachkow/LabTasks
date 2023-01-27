@@ -5,8 +5,10 @@ import com.store.service.EditableCatalogService;
 import com.store.utils.BookUtils;
 import com.store.utils.CatalogUtils;
 import java.util.HashMap;
+import java.util.List;
 
 public class EditableCatalogServiceImpl implements EditableCatalogService {
+
   private final HashMap<Long, Book> catalogMap = new HashMap<>();
 
   {
@@ -60,12 +62,17 @@ public class EditableCatalogServiceImpl implements EditableCatalogService {
     StringBuilder builder = new StringBuilder();
     catalogMap.values()
         .forEach(book -> builder.append(BookUtils.bookToCustomerString(book)).append("\n"));
-    return builder.toString();
+    return builder.toString().trim();
   }
 
   @Override
   public Book getBook(Long bookId) {
     return catalogMap.getOrDefault(bookId, null);
+  }
+
+  @Override
+  public List<Book> getAllBooks() {
+    return catalogMap.values().stream().toList();
   }
 
   public HashMap<Long, Book> getCatalog() {
